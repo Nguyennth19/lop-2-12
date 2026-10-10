@@ -1,0 +1,25 @@
+{
+  "name": "Lớp 2/12 – Chia sẻ và minh bạch",
+  "short_name": "Lớp 2/12",
+  "description": "Thông tin hoạt động, khoản hỗ trợ và chi tiêu của Lớp 2/12",
+  "lang": "vi",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f8fc",
+  "theme_color": "#e0edff",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
