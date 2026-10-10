@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#e0edff">
+<meta name="description" content="Lớp 2/12 – Chia sẻ và minh bạch">
+<title>Lớp 2/12 – Chia sẻ và minh bạch</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#f6f8fc}
+#classApp{display:block;width:100%;height:100vh;height:100dvh;border:0;background:#fff}
+#fallback{position:fixed;z-index:10;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));left:max(12px,env(safe-area-inset-left));max-width:440px;margin:auto;padding:16px 18px;color:#24364a;background:#fff;border:1px solid #dbe6f3;border-radius:16px;box-shadow:0 10px 35px #182d4d2b;font-size:14px;line-height:1.6}
+#fallback[hidden]{display:none}
+#fallback p{margin:0 0 10px}
+.fallback-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap}
+.fallback-actions a{color:#2354bd;font-weight:700;text-decoration:none}
+.fallback-actions button{padding:8px 10px;background:#eef3fa;color:#334766;border:0;border-radius:8px;cursor:pointer}
+</style>
+</head>
+<body>
+<iframe id="classApp" title="Ứng dụng Lớp 2/12" referrerpolicy="strict-origin-when-cross-origin"
+src="https://script.google.com/macros/s/AKfycbzkrl8KDhDj_wTcr_rJd6-F8cgI0fpcGwX7hcj8BXWhPcvo9SWSB49i5Xe6eSgJH44/exec" allow="clipboard-write" loading="eager"></iframe>
+<aside id="fallback" hidden aria-live="polite">
+<p>Nếu trang Lớp 2/12 chưa hiển thị hoặc không thể thao tác, bạn có thể mở trực tiếp trong trình duyệt.</p>
+<div class="fallback-actions"><button type="button" id="dismiss">Đóng</button><a id="openDirect" href="https://script.google.com/macros/s/AKfycbzkrl8KDhDj_wTcr_rJd6-F8cgI0fpcGwX7hcj8BXWhPcvo9SWSB49i5Xe6eSgJH44/exec" target="_blank" rel="noopener noreferrer">Mở trực tiếp ↗</a></div>
+</aside>
+<script>
+(() => {
+ const frame=document.getElementById('classApp');
+ const fallback=document.getElementById('fallback');
+ let receivedLoad=false;
+ frame.addEventListener('load',()=>{receivedLoad=true;});
+ document.getElementById('dismiss').addEventListener('click',()=>{fallback.hidden=true;});
+ // Không splash, không service worker hoặc cache dữ liệu cá nhân.
+ // iframe load không bảo đảm dữ liệu bên trong đã tải thành công.
+ window.setTimeout(()=>{if(!receivedLoad)fallback.hidden=false;},15000);
+})();
+</script>
+</body>
+</html>
