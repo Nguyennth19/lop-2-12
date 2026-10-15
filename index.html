@@ -37,6 +37,22 @@ src="https://script.google.com/macros/s/AKfycbzkrl8KDhDj_wTcr_rJd6-F8cgI0fpcGwX7
  const fallback=document.getElementById('fallback');
  let receivedLoad=false;
  frame.addEventListener('load',()=>{receivedLoad=true;});
+ const wake=()=>{
+  if(document.hidden)return;
+  // No personal data or session token is sent; the Apps Script frame verifies the sender origin.
+  try{frame.contentWindow?.postMessage({type:'LOP212_WAKE_V745'},'*');}catch(_e){}
+ };
+ let lastWake=0;
+ const resume=()=>{
+  if(document.hidden)return;
+  const now=Date.now();
+  if(now-lastWake<2500)return;
+  lastWake=now;wake();
+ };
+ document.addEventListener('visibilitychange',resume);
+ window.addEventListener('pageshow',e=>{if(e.persisted)resume();});
+ window.addEventListener('focus',resume);
+ window.addEventListener('online',resume);
  document.getElementById('dismiss').addEventListener('click',()=>{fallback.hidden=true;});
  // Không splash, không service worker hoặc cache dữ liệu cá nhân.
  // iframe load không bảo đảm dữ liệu bên trong đã tải thành công.
